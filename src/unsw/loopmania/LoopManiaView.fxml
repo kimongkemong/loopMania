@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- TODO = modify and expand the GUI? -->
+<!-- anchorPaneRoot is the background of the main game -->
+
+<Pane onKeyPressed="#handleKeyPress" prefHeight="479.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="anchorPaneRoot" layoutY="-2.0" onKeyPressed="#handleKeyPress" prefHeight="450.0" prefWidth="123.0">
+         <ImageView fitHeight="481.0" fitWidth="289.0" layoutX="211.0">
+            <image>
+               <Image url="@../../images/background_world.jfif" />
+            </image>
+         </ImageView>
+         <!-- HBox is used to stack items horizontally left to right -->
+         <HBox layoutX="-2.0" layoutY="1.0" prefHeight="494.0" prefWidth="500.0">
+            <!-- VBox is used to stack items vertically top to bottom -->
+            <VBox prefHeight="440.0" prefWidth="0.0">
+               <children>
+                   <!-- squares contains the path, buildings, character, and enemies -->
+                  <GridPane fx:id="squares" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+                     <columnConstraints>
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+
+               </children>
+                  </GridPane>
+      
+                  <!-- this BorderPane contains the ground under the cards and the cards -->
+                  <BorderPane prefHeight="505.0" prefWidth="0.0">
+                     <bottom>
+                           <!-- cards GridPane holds the cards which can be used on the map -->
+                           <GridPane fx:id="cards" prefHeight="494.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+                              <columnConstraints>
+                                 <ColumnConstraints />
+                              </columnConstraints>
+                              <rowConstraints>
+                                 <RowConstraints />
+                              </rowConstraints>
+                              <children>
+
+                        </children>
+                           </GridPane>
+                     </bottom>
+                  </BorderPane>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="466.0" prefWidth="162.0">
+               <children>
+                  <GridPane fx:id="equippedHelmet">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView id="helmCell">
+                           <image>
+                              <Image url="@../../images/helmet_slot.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-30.0" left="40.0" right="80.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <GridPane fx:id="the_one_ring_slot" layoutX="50.0" layoutY="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView id="helmCell">
+                           <image>
+                              <Image url="@../../images/the_one_ring_slot.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="5.0" right="125.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <GridPane fx:id="equippedArmour">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView id="blankCell">
+                           <image>
+                              <Image url="@../../images/image_just_black_tiny.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-30.0" left="40.0" right="90.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <GridPane fx:id="equippedWeapon">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView id="swordCell">
+                           <image>
+                              <Image url="@../../images/sword_unequipped.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-30.0" left="75.0" right="60.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <GridPane fx:id="equippedShield">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView id="shieldCell">
+                           <image>
+                              <Image url="@../../images/shield_unequipped.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" right="125.0" />
+                     </VBox.margin>
+                  </GridPane>
+      
+                  <!-- unequippedInventory is for unequipped items, which can be dragged into the equipped inventory -->
+                  <GridPane fx:id="unequippedInventory" VBox.vgrow="NEVER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+                     <columnConstraints>
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                  
+               </children>
+                  </GridPane>
+      
+                  <!-- clicking this button returns the human player to the main menu -->
+                  <Button onAction="#switchToMainMenu" text="Exit to Main Menu">
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin></Button>
+                  <VBox prefHeight="210.0" prefWidth="220.0">
+                     <children>
+                        <GridPane fx:id="equippedItems1" alignment="CENTER_LEFT" prefHeight="115.0" prefWidth="160.0">
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
+                           </rowConstraints>
+                           <children>
+                              <ImageView id="shieldCell" fitHeight="24.0" fitWidth="29.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../../images/gold_pile.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="charGold" text="Label" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Cooper Black" size="16.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="45.0" nodeOrientation="INHERIT" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@../../images/XP_boiii.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="expChar" alignment="CENTER" text="Label" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Cooper Black" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <GridPane prefHeight="35.0" prefWidth="96.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="101.0" minWidth="10.0" prefWidth="65.80000915527344" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.00000534057617" minWidth="10.0" prefWidth="91.39999084472655" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="23.0" prefWidth="112.0" text="Cycles :">
+                                 <font>
+                                    <Font name="Cooper Black" size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="worldCycle" contentDisplay="CENTER" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="Cooper Black" size="18.0" />
+                                 </font></Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" top="3.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <Label alignment="CENTER" prefWidth="96.0" text="Game Modes:" textAlignment="CENTER" textFill="#fafafa">
+                           <font>
+                              <Font name="Cooper Black" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="GameModeLabel" prefHeight="20.0" prefWidth="160.0" text="Label" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Cooper Black" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="324.0" prefWidth="155.0">
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="0.0" prefWidth="156.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.2" minWidth="0.0" prefWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView id="helmCell" fitHeight="28.0" fitWidth="28.0" GridPane.halignment="CENTER">
+                           <image>
+                              <Image url="@../../images/heart.png" />
+                           </image>
+                        </ImageView>
+                        <ProgressBar fx:id="healthBar" prefHeight="18.0" prefWidth="104.0" progress="0.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Label fx:id="healthChar" text="Label" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Cooper Black" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="soldierGridPane" gridLinesVisible="true" prefWidth="165.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" />
+               </HBox.margin>
+            </VBox>
+         </HBox>
+         <padding>
+            <Insets bottom="-10.0" />
+         </padding>
+      </AnchorPane>
+   </children>
+</Pane>

@@ -1,0 +1,10 @@
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-text-fill: rgb(92, 3, 3); 
+    -fx-font-weight: bold;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-scale-x: 0;
+}
